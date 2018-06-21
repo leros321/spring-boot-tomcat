@@ -62,7 +62,7 @@ public class SampleTomcatApplicationTests {
 	public void testHome() {
 		ResponseEntity<String> entity = this.restTemplate.getForEntity("/", String.class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(entity.getBody()).isEqualTo("Hello World");
+		assertThat(entity.getBody()).isEqualTo("Hello Kosice");
 	}
 
 	@Test
@@ -76,7 +76,7 @@ public class SampleTomcatApplicationTests {
 		try (GZIPInputStream inflater = new GZIPInputStream(
 				new ByteArrayInputStream(entity.getBody()))) {
 			assertThat(StreamUtils.copyToString(inflater, StandardCharsets.UTF_8))
-					.isEqualTo("Hello World");
+					.isEqualTo("Hello Kosice");
 		}
 	}
 
